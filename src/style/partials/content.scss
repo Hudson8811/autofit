@@ -889,6 +889,7 @@
 
   textarea,
   input {
+    display: block;
     font-size: 14px;
     line-height: 21px;
     color: #334d6e;
@@ -899,7 +900,8 @@
     height: 48px;
     width: 100%;
     padding-top: 11px;
-    padding-left: 18px;
+    padding-left: 16px;
+    appearance: none;
 
     &:disabled {
       background: #f4f4f4;
