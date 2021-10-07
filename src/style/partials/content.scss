@@ -820,7 +820,7 @@
     }
 
     input {
-      padding-left: 38px;
+      padding-left: 55px !important;
     }
 
     #{$self}__map {
@@ -832,7 +832,7 @@
     }
 
     #{$self}__placeholder {
-      padding-left: 55px;
+      left: 55px;
     }
   }
 
@@ -892,13 +892,14 @@
     font-size: 14px;
     line-height: 21px;
     color: #334d6e;
-    text-indent: 16px;
+    //text-indent: 16px;
     border: 1px solid #dadce0;
     box-sizing: border-box;
     border-radius: 3px;
     height: 48px;
     width: 100%;
     padding-top: 11px;
+    padding-left: 18px;
 
     &:disabled {
       background: #f4f4f4;
@@ -935,7 +936,7 @@
   &__placeholder {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 18px;
     transition: 0.3s;
     font-size: 14px;
     line-height: 21px;
@@ -943,7 +944,7 @@
     align-items: center;
     color: #b0b4bd;
     width: 100%;
-    padding-left: 18px;
+    //padding-left: 18px;
     box-sizing: border-box;
     height: 48px;
     pointer-events: none;
