@@ -832,7 +832,7 @@
     }
 
     #{$self}__placeholder {
-      left: 55px;
+      left: 54px;
     }
   }
 
@@ -901,6 +901,7 @@
     width: 100%;
     padding-top: 11px;
     padding-left: 16px;
+    box-shadow: none;
     appearance: none;
 
     &:disabled {
@@ -938,7 +939,7 @@
   &__placeholder {
     position: absolute;
     top: 0;
-    left: 18px;
+    left: 17px;
     transition: 0.3s;
     font-size: 14px;
     line-height: 21px;
