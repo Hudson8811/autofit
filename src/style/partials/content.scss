@@ -18,8 +18,8 @@
   overflow: auto;
 
   @include _small {
-    max-height: calc(100% - 56px);
-    height: calc(100vh - 56px);
+    max-height: none;
+    height: auto;
   }
 
   &__container {
