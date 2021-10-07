@@ -1,0 +1,81 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'balance',
+      order: 2,
+      isAuth: true
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Баланс аккаунта
+
+
+        .mini-content
+          .white-block
+            form.form-style.balans
+              .form-style__label.form-style__label--m-flex
+                | Текущий баланс:
+                span.balans__value 150 руб.
+              .balans__form
+                label.input-block
+                  input.mask-rub(type="text" name="" required="required", value="1200" )
+                  span.input-block__placeholder Сумма пополнения
+                button.btn(type="submit") Пополнить баланс
+          .white-block
+            .form-style
+              .form-style__label.form-style__label--large История операций
+              .balans-table
+                .balans-table__row
+                  .balans-table__left
+                    .balans-table__icon
+                    .balans-table__date
+                      | 04.09.2020;
+                      span 11:32
+                    .balans-table__info Заявка №00000012
+                    .balans-table__method Списание с ЛС
+                  .balans-table__right
+                    .balans-table__value.balans-table__value--minus - 30 руб.
+                .balans-table__row
+                  .balans-table__left
+                    .balans-table__icon
+                    .balans-table__date
+                      | 04.09.2020;
+                      span 11:32
+                    .balans-table__info Пополнение баланса
+                    .balans-table__method Оплата по счёту
+                  .balans-table__right
+                    .balans-table__value.balans-table__value--plus + 30 руб.
+                .balans-table__row
+                  .balans-table__left
+                    .balans-table__icon
+                    .balans-table__date
+                      | 04.09.2020;
+                      span 11:32
+                    .balans-table__info Заявка №00000012
+                    .balans-table__method Списание с ЛС
+                  .balans-table__right
+                    .balans-table__value.balans-table__value--minus - 30 руб.
+                .balans-table__row
+                  .balans-table__left
+                    .balans-table__icon
+                    .balans-table__date
+                      | 04.09.2020;
+                      span 11:32
+                    .balans-table__info Пополнение баланса
+                    .balans-table__method Оплата картой
+                  .balans-table__right
+                    .balans-table__value.balans-table__value--plus + 30 руб.
+
+
+      include partials/_footer

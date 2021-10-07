@@ -1,0 +1,97 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'orders',
+      order: 1,
+      isAuth: true
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Мои заказы
+          .page__title-rigth
+            .sort-dir
+              .sort-dir__label Сортировка:
+              a.sort-dir__link(href="javascript:;") По дате
+            a.btn.btn--bold.btn--flex(href="")
+              svg.btn__icon(width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M6 0H4v4H0v2h4v4h2V6h4V4H6V0Z" fill="#fff")
+              span Создать новый заказ
+
+        .orders
+          .orders-table
+            .orders-table__row.orders-table__row--header
+              .orders-table__cell.orders-table__cell--date Дата и время
+              .orders-table__cell.orders-table__cell--id Номер заявки
+              .orders-table__cell.orders-table__cell--address Адрес отправителя
+              .orders-table__cell.orders-table__cell--address Адрес получателя
+              .orders-table__cell.orders-table__cell--status Статус
+              .orders-table__cell.orders-table__cell--price Сумма
+            
+            - let ordersRow = 2
+
+            while ordersRow--
+
+              .orders-table__row.orders-table__row--item
+                .orders-table__cell.orders-table__cell--date
+                  .order-date <b>01.08.2020,</b> <span>15:36</span>
+                .orders-table__cell.orders-table__cell--id № 00000012
+                .orders-table__cell.orders-table__cell--address
+                  | ул. Иванова д.64 к.2 
+                  a.address-notice(href="#")
+                    svg(width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path(fill-rule="evenodd" clip-rule="evenodd" d="M1.778 1.75h12.447s-.003 2.915-.003 8.745c0 .002-3.555.005-10.666.005h-.42l-1.358.668V1.75ZM16 10.495v-8.74a1.725 1.725 0 0 0-.517-1.239A1.78 1.78 0 0 0 14.227 0H1.773C.793 0 0 .781 0 1.745V14l3.556-1.75h10.66a1.807 1.807 0 0 0 1.262-.514A1.754 1.754 0 0 0 16 10.495Z" fill="#00C2FF")
+                      path(fill-rule="evenodd" clip-rule="evenodd" d="M12.444 5.25H3.556V3.5h8.888v1.75Zm0 3.5H8.89V7h3.555v1.75Z" fill="#00C2FF")
+                .orders-table__cell.orders-table__cell--address ул. Перова д.25
+                .orders-table__cell.orders-table__cell--status
+                  if ordersRow === 1
+                    .orders-table__status.orders-table__status--1 В работе
+                  else
+                    .orders-table__status.orders-table__status--2 Выполнен
+                .orders-table__cell.orders-table__cell--price 540 руб.
+                button.orders-table__toggle(class= (ordersRow === 1 ? 'active' : ''), type="button", aria-label="Развернуть")
+
+
+              .orders-table__row.orders-table__row--content(class= (ordersRow === 1 ? 'active' : ''))
+                .orders-table__content
+                  .parts-table
+                    .parts-table__row.parts-table__row--header
+                      .parts-table__cell.parts-table__cell--sender Отправитель
+                      .parts-table__cell.parts-table__cell--recipient Получатель
+                      .parts-table__cell.parts-table__cell--delivery-method Как доставить
+                      .parts-table__cell.parts-table__cell--object Что везем
+                      .parts-table__cell.parts-table__cell--payment-method Способ оплаты
+                      .parts-table__cell.parts-table__cell--map На карте
+
+                    .parts-table__row.parts-table__row--main
+                      .parts-table__cell.parts-table__cell--sender
+                        span Кузнецов О. С.
+                        span.bolder +7 906 708 39 06
+                      .parts-table__cell.parts-table__cell--recipient
+                        span Иван
+                        span.bolder +7 906 399 42 42
+                      .parts-table__cell.parts-table__cell--delivery-method
+                        span Пешком
+                        span.bolder до 10кг
+                      .parts-table__cell.parts-table__cell--object
+                        span Запасные части
+                        span.bolder 1000 руб.
+                      .parts-table__cell.parts-table__cell--payment-method Картой онлайн
+                      .parts-table__cell.parts-table__cell--map
+                        .view-on-map
+                          span.view-on-map__icon
+                            svg(width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(fill-rule="evenodd" clip-rule="evenodd" d="M16.875 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-7.02 1.18a1.125 1.125 0 0 0-.97.132L6.128 5.384A1.125 1.125 0 1 0 7.37 7.261l2.3-1.523 1.066.35-2.034 3.151c-.02.032-.04.065-.057.098l-1.273 2.492-2.624-.596a1.125 1.125 0 0 0-.498 2.194l3.477.79a1.125 1.125 0 0 0 1.251-.585l1.049-2.053.685.54-1.108 4.395a1.125 1.125 0 0 0 2.131.722l1.364-5.148c.153-.452.005-.95-.37-1.245l-1.581-1.244 1.509-2.337.793 1.225c.208.32.563.513.944.513h2.48a1.125 1.125 0 0 0 0-2.25h-1.868l-1.125-1.737a1.125 1.125 0 0 0-.594-.457L9.855 3.43ZM2.25 7.876a1.125 1.125 0 0 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H2.25ZM0 5.625C0 5.004.504 4.5 1.125 4.5h1.687a1.125 1.125 0 0 1 0 2.25H1.125A1.125 1.125 0 0 1 0 5.625Zm3.375-4.5a1.125 1.125 0 1 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H3.375Z" fill="#885AF8")
+                          a.view-on-map__link(href="#") Посмотреть
+
+      include partials/_footer

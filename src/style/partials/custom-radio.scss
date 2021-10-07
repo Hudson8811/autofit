@@ -1,0 +1,103 @@
+.custom-radio {
+  $self: &;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: -16px;
+  margin-left: -16px;
+
+  &__item {
+    $item: &;
+    margin-top: 16px;
+    margin-left: 16px;
+
+    @include _small {
+      width: calc(50% - 16px);
+    }
+
+    &--third {
+      width: calc(33.33% - 16px);
+
+      @include _small {
+        width: calc(50% - 16px);
+      }
+    }
+
+    &--icon {
+      @include _small {
+        width: 100%;
+      }
+    }
+
+    &-icon {
+      display: flex;
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      margin-left: -8px;
+      justify-content: center;
+      align-self: center;
+
+      svg {
+        display: block;
+        fill: #b0b4bd;
+        align-self: center;
+        transition: fill 0.3s ease;
+      }
+    }
+
+    &-text {
+      display: flex;
+      justify-content: center;
+      padding: 11px 24px;
+      border: solid 1px #dadce0;
+      font-size: 14px;
+      line-height: 24px;
+      border-radius: 3px;
+      color: #334d6e;
+      cursor: pointer;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    &-wrapper {
+      align-self: center;
+      margin-top: -3px;
+      margin-bottom: -3px;
+      padding-bottom: 2px;
+
+      span {
+        line-height: 1;
+      }
+      span.hint {
+        display: block;
+        font-size: 12px;
+        color: #b0b4bd !important;
+      }
+    }
+
+    &:hover {
+      #{$item}-text {
+        border-color: #00c2ff;
+        color: #00c2ff;
+      }
+
+      #{$item}-icon {
+        svg {
+          fill: #00c2ff;
+        }
+      }
+    }
+
+    input:checked ~ &-text {
+      border-color: #00c2ff;
+      color: #00c2ff;
+
+      #{$item}-icon {
+        svg {
+          fill: #00c2ff;
+        }
+      }
+    }
+  }
+}

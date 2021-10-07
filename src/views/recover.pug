@@ -1,0 +1,49 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'recovery',
+      order: 3,
+      isAuth: false
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Восстановление пароля
+
+
+        .mini-content.mini-content--full-height
+          .white-block.white-block--full-height
+            form.form-style
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="email" name="" required="required", value="3423432@mail.ru")
+                    span.input-block__placeholder Email
+              .form-style__row
+                .form-style__col.form-style__col--text
+                  .form-style__text 
+                    p Укажите адрес эл. почты, который Вы использовали при регистрации в СДА. 
+                    p Мы вышлем Вам инструкцию по восстановлению пароля.
+
+              .form-style__btn
+                button.btn.btn--large(type="submit") Восстановить
+
+            .form-style
+              .form-style__row
+                .form-style__col
+                  .account-bottom
+                    | Уже есть аккаунт?
+                    a(href="") Войти
+
+
+      include partials/_footer

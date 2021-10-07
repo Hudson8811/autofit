@@ -1,0 +1,142 @@
+.bgoverflow {
+  display: none;
+
+  @include _medium {
+    transition: 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vh;
+    height: 100vh;
+    z-index: 99;
+    opacity: 0.6;
+    display: none;
+    background: #000000;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.sidebar {
+  $self: &;
+
+  width: 256px;
+  flex-shrink: 0;
+  background: #ffffff;
+  box-shadow: 6px 0px 18px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+
+  @include _medium {
+    transition: 0.3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+    transform: translateX(-100%);
+    opacity: 0;
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &__container {
+    padding: 0 24px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &__top {
+    height: 60px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ebeff2;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__bottom {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__userinfo {
+    padding-top: 17px;
+
+    &-name {
+      font-weight: 500;
+    }
+
+    &-email {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.01em;
+      color: #707683;
+      margin-top: 2px;
+    }
+  }
+  &__menu {
+    padding: 25px 0;
+  }
+
+  &__login-menu {
+    flex-grow: 1;
+    box-sizing: border-box;
+    padding-top: 25px;
+    border-top: 1px solid #ebeff2;
+  }
+  &__footer {
+    padding: 25px 0;
+  }
+  &__copy {
+    color: #707683;
+  }
+}
+
+.side-menu {
+  &__item {
+    & + .side-menu__item {
+      margin-top: 19px;
+    }
+
+    svg {
+      margin-right: 14px;
+      flex-shrink: 0;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      color: #c2cfe0;
+      span {
+        color: #334d6e;
+      }
+    }
+    &:hover,
+    &--current {
+      a {
+        color: #00c2ff;
+        span {
+          color: #00c2ff;
+        }
+      }
+    }
+  }
+}

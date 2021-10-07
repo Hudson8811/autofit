@@ -1,0 +1,70 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'login',
+      order: 3,
+      isAuth: false
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Авторизация
+
+
+        .mini-content.mini-content--full-height
+          .white-block.white-block--full-height
+            form.form-style
+              //-.form-style__label Вход через социальные сети
+                .form-style__row
+                  .form-style__col
+                    .socials
+                      .socials__item
+                        a.socials__link.socials__link--google(href="")
+                      .socials__item
+                        a.socials__link.socials__link--mail(href="")
+                      .socials__item
+                        a.socials__link.socials__link--ya(href="")
+                      .socials__item
+                        a.socials__link.socials__link--vk(href="")
+                      .socials__item
+                        a.socials__link.socials__link--fb(href="")
+                      .socials__item
+                        a.socials__link.socials__link--ok(href="")
+
+              .form-style__label Вход на сайт
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="email" name="" required="required", value="3423432@mail.ru")
+                    span.input-block__placeholder Email
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="password" name="" required="required", value="123456789" )
+                    span.input-block__placeholder Пароль
+                    span.input-block__password-toggle
+
+              .form-style__row
+                .form-style__col.form-style__col--btn
+                  button.btn(type="submit") Войти
+                  a(href="") Забыли пароль?
+
+
+            .form-style
+              .form-style__row
+                .form-style__col
+                  .account-bottom
+                    | Нет аккаунта?
+                    a(href="") Зарегистрируйтесь
+
+      //-include partials/_footer

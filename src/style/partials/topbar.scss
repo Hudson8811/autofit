@@ -1,0 +1,95 @@
+.topbar {
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebeff2;
+  background: #ffffff;
+
+  @include _small {
+    height: 56px;
+  }
+  &__container {
+    height: 100%;
+  }
+  &__inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__mobile {
+    display: none;
+    @include _medium {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__menu {
+    @include _medium {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url("../img/burger.svg") center center no-repeat;
+      background-size: contain;
+      margin-right: 17px;
+      cursor: pointer;
+    }
+  }
+  &__logo {
+    @include _medium {
+      display: block;
+      width: 144px;
+      margin-right: 30px;
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    @include _small {
+      //width: 104px;
+    }
+  }
+  &__search {
+    flex-grow: 1;
+
+    @include _small {
+      display: none;
+    }
+    form {
+      width: 100%;
+    }
+    input {
+      padding-left: 32px;
+      background: url("../img/icon-search.svg") left center no-repeat;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+  &__notifications {
+    margin-left: 20px;
+    &-link {
+      display: block;
+      width: 17px;
+      height: 20px;
+      background: url("../img/icon-not.svg") center center no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      position: relative;
+      &.has-new {
+        &::after {
+          content: "";
+          background: #f7685b;
+          border: 1px solid #ffffff;
+          box-sizing: border-box;
+          width: 10px;
+          height: 10px;
+          display: block;
+          position: absolute;
+          right: -1px;
+          top: 0;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}

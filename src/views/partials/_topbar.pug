@@ -1,0 +1,13 @@
+.topbar
+  .container.topbar__container
+    .topbar__inner
+      .topbar__mobile
+        a.topbar__menu(href="javascript:;")
+        a.topbar__logo(href="")
+          img(src="img/sda-logo.svg")
+      if page.isAuth
+        .topbar__search
+          form
+            input(type="text" name="search" placeholder='Поиск по заявкам')
+        .topbar__notifications
+          a.topbar__notifications-link.has-new(href="")

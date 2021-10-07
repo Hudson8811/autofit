@@ -1,0 +1,111 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'registration',
+      order: 3,
+      isAuth: false
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Регистрация
+
+
+        .mini-content.mini-content--full-height
+          .white-block.white-block--full-height
+            form.form-style.form-style--small
+              //-.form-style__label Вход через социальные сети
+                .form-style__row
+                  .form-style__col
+                    .socials
+                      .socials__item
+                        a.socials__link.socials__link--google(href="")
+                      .socials__item
+                        a.socials__link.socials__link--mail(href="")
+                      .socials__item
+                        a.socials__link.socials__link--ya(href="")
+                      .socials__item
+                        a.socials__link.socials__link--vk(href="")
+                      .socials__item
+                        a.socials__link.socials__link--fb(href="")
+                      .socials__item
+                        a.socials__link.socials__link--ok(href="")
+
+              //-.form-style__label Регистрация по email
+              .form-style__row
+                .form-style__col.form-style__col--full-width
+                  label.input-block
+                    input(type="text" name="" required="required", value="ООО «Euro Parts»")
+                    span.input-block__placeholder Название организации
+              .form-style__row
+                .form-style__col.form-style__col--full-width
+                  label.input-block
+                    input(type="text" name="" required="required", value="бул. Иванова д. 12")
+                    span.input-block__placeholder Адрес доставки
+              .form-style__row
+                .form-style__col.form-style__col--full-width
+                  label.input-block
+                    input(type="text" name="" required="required", value="Кузнецов Петр Иванович")
+                    span.input-block__placeholder Ответственное лицо
+              .form-style__row
+                .form-style__col.form-style__col--full-width
+                  label.input-block
+                    input(type="tel" name="" required="required", value="+7 906 708 98 98")
+                    span.input-block__placeholder Контактный телефон
+              .form-style__row
+                .form-style__col.form-style__col--full-width
+                  label.input-block
+                    input(type="email" name="" required="required", value="autoparts@mail.ru")
+                    span.input-block__placeholder Адрес электронной почты
+              //-.form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="password" name="" required="required" )
+                    span.input-block__placeholder Пароль
+                    span.input-block__password-toggle
+                  .password-check
+                    .password-check__item.password-check__item--incorrect
+                      span От 6 символов латиницей
+                    .password-check__item.password-check__item--incorrect
+                      span Хотя бы 1 заглавная буква
+                    .password-check__item.password-check__item--correct
+                      span Хотя бы 1 цифра
+              //-.form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="password" name="" required="required" )
+                    span.input-block__placeholder Пароль
+                    span.input-block__password-toggle
+
+              .form-style__row.form-style__row--mtb
+                .form-style__col
+                  button.btn(type="submit") Зарегистрироваться
+
+              .form-style__row
+                .form-style__col.form-style__col--wide
+                  .form-style__agree
+                    label.checkbox-big
+                      input(type="checkbox" name="")
+                      span
+                      .form-style__text Я принимаю условия <a href="#">Пользовательского соглашения</a> и даю своё согласие «СДА» на обработку моей персональной информации на условиях, определенных <a href="#">Политикой конфиденциальности.</a>
+
+
+
+            .form-style
+              .form-style__row
+                .form-style__col
+                  .account-bottom
+                    | Уже есть аккаунт?
+                    a(href="") Войти
+
+      include partials/_footer

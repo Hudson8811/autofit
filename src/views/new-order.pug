@@ -1,0 +1,300 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'new order',
+      order: 1,
+      isAuth: true
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Заказать курьерскую доставку
+
+
+        .mini-content.mini-content--large-width
+          form
+            .white-block
+              .form-style.form-style--wide
+                .form-style__label.form-style__label--large Откуда
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .input-block.input-block--address
+                      a.input-block__map(href="#")
+                        img(src="img/map-thumb.svg", width="38", height="38", alt="")
+                      label
+                        input(type="text" name="" required="required")
+                        span.input-block__placeholder Адрес отправки
+                
+                .form-style__row
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="number" name="" required="required")
+                      span.input-block__placeholder Подъезд
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="nember" name="" required="required")
+                      span.input-block__placeholder Этаж
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Кв/офис
+                  .form-style__col.form-style__col--auto
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Комментарий к адресу
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    label.input-block
+                      textarea(type="text" name="" required="required")
+                      span.input-block__placeholder Поручение для курьера
+                
+                .form-style__row
+                  .form-style__col.form-style__col--third-width
+                    label.input-block
+                      input.mask-phone(type="tel" name="" required="required")
+                      span.input-block__placeholder Контактный телефон
+
+                  .form-style__col.form-style__col--auto
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Контактное лицо
+
+                .form-style__row
+                  .form-style__col.form-style__col--day
+                    select.js-select(name="deliveryDate")
+                      option(value="today") Сегодня
+                      option(value="tomorrow") Завтра
+                  .form-style__col.form-style__col--time
+                    .timeselect
+                      .timeselect__before c
+                      select.js-select(name="deliveryTimeStart")
+                        option(value="9") 9:00
+                        option(value="10") 10:00
+                  .form-style__col.form-style__col--time
+                    .timeselect
+                      .timeselect__before до
+                      select.js-select(name="deliveryTimeEnd")
+                        option(value="17") 17:00
+                        option(value="18") 18:00
+                  
+                  .form-style__col.form-style__col--auto 
+                    .courier-time
+                      span.courier-time__icon
+                        svg(width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+                          path(fill-rule="evenodd" clip-rule="evenodd" d="M16.875 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-7.02 1.18a1.125 1.125 0 0 0-.97.132L6.128 5.384A1.125 1.125 0 1 0 7.37 7.261l2.3-1.523 1.066.35-2.034 3.151c-.02.032-.04.065-.057.098l-1.273 2.492-2.624-.596a1.125 1.125 0 0 0-.498 2.194l3.477.79a1.125 1.125 0 0 0 1.251-.585l1.049-2.053.685.54-1.108 4.395a1.125 1.125 0 0 0 2.131.722l1.364-5.148c.153-.452.005-.95-.37-1.245l-1.581-1.244 1.509-2.337.793 1.225c.208.32.563.513.944.513h2.48a1.125 1.125 0 0 0 0-2.25h-1.868l-1.125-1.737a1.125 1.125 0 0 0-.594-.457L9.855 3.43ZM2.25 7.876a1.125 1.125 0 0 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H2.25ZM0 5.625C0 5.004.504 4.5 1.125 4.5h1.687a1.125 1.125 0 0 1 0 2.25H1.125A1.125 1.125 0 0 1 0 5.625Zm3.375-4.5a1.125 1.125 0 1 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H3.375Z" fill="#00C2FF")
+                      span.courier-time__text Курьер будет с <b>15:00</b> до <b>17:00</b>
+                    
+                
+                //-.form-style__row
+                  .form-style__col
+                    label.input-block
+                      input.mask-vin(type="text" name="" required="required" data-group="id")
+                      span.input-block__placeholder VIN номер
+                  .form-style__sep или
+                  .form-style__col
+                    label.input-block
+                      input(type="text" name="" required="required" data-group="id")
+                      span.input-block__placeholder Model Frame
+                    .form-style__help
+                      span ?
+                      .form-style__help-text
+                        p Какой то текст. Сдесь могла быть ваша реклама
+                
+                //-.form-style__row
+                  .form-style__col.form-style__col--text
+                    .form-style__text Стоимость подбора оригинального номера одной детали + 2 аналога составляет: 10 q
+
+                //-.form-style__label Выберите способ для связи
+                //-.form-style__row
+                  .form-style__col
+                    select.js-contact-select(name="contact_type")
+                      option(value="WhatsApp" data-img="soc-wa.svg") WhatsApp
+                      option(value="Телефон" data-img="soc-wa.svg") Телефон
+                      option(value="Viber" data-img="soc-wa.svg") Viber
+
+                  .form-style__col
+                    label.input-block
+                      input.mask-phone(type="text" name="" required="required")
+                      span.input-block__placeholder Контактный телефон
+                //-.form-style__row
+                  .form-style__col.form-style__col--text
+                    .form-style__text Вся информация по деталям будет направлена Вам сообщением в чат на указанный номер телефона.
+            
+            
+            .white-block
+              .form-style.form-style--wide
+                .form-style__label.form-style__label--large.form-style__label--flex
+                  span Куда
+                  a.add-address(href="#")
+                    svg(width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg")
+                      path(d="M6 0H4v4H0v2h4v4h2V6h4V4H6V0Z" fill="currentColor")
+                    span Добавить адрес
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .input-block.input-block--address
+                      a.input-block__map(href="#")
+                        img(src="img/map-thumb.svg", width="38", height="38", alt="")
+                      label
+                        input(type="text" name="" required="required")
+                        span.input-block__placeholder Адрес доставки
+                
+                .form-style__row
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="number" name="" required="required")
+                      span.input-block__placeholder Подъезд
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="nember" name="" required="required")
+                      span.input-block__placeholder Этаж
+                  .form-style__col.form-style__col--small
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Кв/офис
+                  .form-style__col.form-style__col--auto
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Комментарий к адресу
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    label.input-block
+                      textarea(type="text" name="" required="required")
+                      span.input-block__placeholder Поручение для курьера
+                
+                .form-style__row
+                  .form-style__col.form-style__col--third-width
+                    label.input-block
+                      input(type="tel" name="" required="required")
+                      span.input-block__placeholder Контактный телефон
+
+                  .form-style__col.form-style__col--auto
+                    label.input-block
+                      input(type="text" name="" required="required")
+                      span.input-block__placeholder Контактное лицо
+                
+                .form-style__row
+                  .form-style__col.form-style__col--day
+                    select.js-select(name="deliveryDate")
+                      option(value="today") Сегодня
+                      option(value="tomorrow") Завтра
+                  .form-style__col.form-style__col--time
+                    .timeselect
+                      .timeselect__before c
+                      select.js-select(name="deliveryTimeStart")
+                        option(value="9") 9:00
+                        option(value="10") 10:00
+                  .form-style__col.form-style__col--time
+                    .timeselect
+                      .timeselect__before до
+                      select.js-select(name="deliveryTimeEnd")
+                        option(value="17") 17:00
+                        option(value="18") 18:00
+            .white-block
+              .form-style.form-style--wide
+                .form-style__label.form-style__label--large Что везем
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .input-block
+                      label
+                        input(type="text" name="" required="required")
+                        span.input-block__placeholder Наименование груза
+                      .input-block__hints 
+                        each text in ['Запасные части', 'Кузовные элементы', 'Тех. жидкости', 'Оптика', 'Автостёкла',        'Крупные узлы', 'Другое']
+                          button(type="button")= text
+                .form-style__label.form-style__label--large Как доставить
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .custom-radio
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="deliveryType", value="Пешком", checked)
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(fill-rule="evenodd" clip-rule="evenodd" d="M16.875 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-7.02 1.18a1.125 1.125 0 0 0-.97.132L6.128 5.384A1.125 1.125 0 1 0 7.37 7.261l2.3-1.523 1.066.35-2.034 3.151c-.02.032-.04.065-.057.098l-1.273 2.492-2.624-.596a1.125 1.125 0 0 0-.498 2.194l3.477.79a1.125 1.125 0 0 0 1.251-.585l1.049-2.053.685.54-1.108 4.395a1.125 1.125 0 0 0 2.131.722l1.364-5.148c.153-.452.005-.95-.37-1.245l-1.581-1.244 1.509-2.337.793 1.225c.208.32.563.513.944.513h2.48a1.125 1.125 0 0 0 0-2.25h-1.868l-1.125-1.737a1.125 1.125 0 0 0-.594-.457L9.855 3.43ZM2.25 7.876a1.125 1.125 0 0 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H2.25ZM0 5.625C0 5.004.504 4.5 1.125 4.5h1.687a1.125 1.125 0 0 1 0 2.25H1.125A1.125 1.125 0 0 1 0 5.625Zm3.375-4.5a1.125 1.125 0 1 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H3.375Z")
+                          span Пешком
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="deliveryType", value="Легковой автомобиль")
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M3.47 0a1.5 1.5 0 0 0-1.417 1.014L0 7v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7l-2.053-5.986A1.5 1.5 0 0 0 14.53 0H3.471Zm.358 2h10.344l1.03 3H2.798l1.03-3ZM2.113 7h13.774l.113.332V12H2V7.332L2.113 7ZM4.5 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z")
+                          span Легковой автомобиль
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="deliveryType", value="Грузовой")
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M2 0a2 2 0 0 0-2 2v11h2a3 3 0 1 0 6 0h6a3 3 0 1 0 6 0h2V8l-2.725-5.447A.996.996 0 0 0 18.383 2H15V0H2Zm0 2h11v9H7.22A2.98 2.98 0 0 0 5 10a2.98 2.98 0 0 0-2.22 1H2V2Zm13 2h2.764l1 2H15V4Zm0 4h4.764l.236.473V11h-.78A2.98 2.98 0 0 0 17 10c-.772 0-1.468.3-2 .78V8ZM5 11.75c.689 0 1.25.561 1.25 1.25S5.689 14.25 5 14.25 3.75 13.689 3.75 13s.561-1.25 1.25-1.25Zm12 0c.689 0 1.25.561 1.25 1.25s-.561 1.25-1.25 1.25-1.25-.561-1.25-1.25.561-1.25 1.25-1.25Z")
+                          span Грузовой
+                .form-style__label.form-style__label--large Вес груза
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .custom-radio
+                      each item, index in ['до 1кг', 'до 3кг', 'до 5кг', 'до 10кг', 'до 15кг']
+                        label.custom-radio__item 
+                          if index === 0
+                            input.visually-hidden(type="radio", name="weight", value= item, checked)
+                          else 
+                            input.visually-hidden(type="radio", name="weight", value= item)
+                          span.custom-radio__item-text
+                            span= item
+                .form-style__label.form-style__label--large Ценность груза
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .input-block.input-block--notice.input-block--rub
+                      label
+                        input(type="text" name="" required="required", value="1000")
+                      .input-block__notice плюс 10 руб. к заказу
+                .form-style__row
+                  .form-style__col
+                    .form-style__text.form-style__text--main-color Компенсируем ценность утерянных отправлений и выручки в течение трех рабочих дней по <a href="#">регламенту</a>. Максимальная компенсация — 50 000 рублей.
+
+            .white-block
+              .form-style.form-style--wide
+                .form-style__label.form-style__label--large Способы оплаты
+                .form-style__row
+                  .form-style__col.form-style__col--wide
+                    .custom-radio
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="paymentMethod", value="Списать с ЛС", checked)
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M4 0C2.897 0 2 .897 2 2v10c0 1.103.897 2 2 2H0v2h24v-2h-4c1.103 0 2-.897 2-2V2c0-1.103-.897-2-2-2H4Zm0 2h16l.002 10H4V2Zm7 2v4.95l1.125-1.071.959 2.213.916-.397-.951-2.2 1.55-.136L11 4Z")
+                          span.custom-radio__item-wrapper
+                            span Списать с ЛС
+                            span.hint Ваш баланс: 2500 руб.
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="paymentMethod", value="Картой онлайн")
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M6 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H6Zm0 2h12v2H6V2ZM2 4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2H2V4Zm4 2h12v4H6V6Z")
+                          span.custom-radio__item-wrapper
+                            span Картой онлайн
+                            span.hint Visa/MasterCard/МИР
+                      label.custom-radio__item.custom-radio__item--icon
+                        input.visually-hidden(type="radio", name="paymentMethod", value="Наличными курьеру")
+                        span.custom-radio__item-text 
+                          span.custom-radio__item-icon
+                            svg(width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg")
+                              path(d="M3 0C1.346 0 0 1.346 0 3v13c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2H3a1.001 1.001 0 0 1 0-2h14V0H3ZM2 5.816C2.314 5.93 2.648 6 3 6h13v10H2V5.816ZM13 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z")
+                          span.custom-radio__item-wrapper
+                            span Наличными курьеру
+                            span.hint Оплата при получении
+                .form-style__total-price  Итого: 350 руб
+                .form-style__btn
+                  button.btn.btn--xlarge(type="submit") Отправить заявку
+                .form-style__notice После отправки заявки Вы сможете отслеживать статус заказа в Личном кабинете.
+
+      include partials/_footer

@@ -1,0 +1,74 @@
+extends layouts/default
+
+block vars
+  -
+    const page = {
+      title: 'account',
+      order: 3,
+      isAuth: true
+    };
+
+
+
+
+block main
+  .main__content
+    include partials/_topbar
+
+    .page
+      .container.page__container
+        .page__title
+          h1.page__title-h1 Аккаунт компании
+
+
+        .mini-content
+          .white-block
+            form.form-style
+              .form-style__label Контактная информация
+              .form-style__row
+                .form-style__col.form-style__col--wide
+                  label.input-block
+                    input(type="text" name="" required="required", value="ООО «Euro Parts»")
+                    span.input-block__placeholder Название организации
+              .form-style__row
+                .form-style__col.form-style__col--wide
+                  label.input-block
+                    input(type="text" name="" required="required", value="г Москва, ул. Ленина стр.3  ")
+                    span.input-block__placeholder Адрес доставки
+
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="number" name="" required="required", value="12")
+                    span.input-block__placeholder Офис или помещение
+                .form-style__col
+                  label.input-block
+                    input(type="text" name="" required="required")
+                    //-span.input-block__placeholder Email
+
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="tel" name="" required="required", value="+7 916 806 90 90")
+                    span.input-block__placeholder Телефон
+                .form-style__col
+                  label.input-block
+                    input(type="email" name="" required="required", value="ivan@mail.ru")
+                    span.input-block__placeholder Email
+
+              .form-style__label Смена пароля
+              .form-style__row
+                .form-style__col
+                  label.input-block
+                    input(type="password" name="" required="required", value="12345678")
+                    span.input-block__placeholder Текущий пароль
+                    span.input-block__password-toggle
+                .form-style__col
+                  label.input-block
+                    input(type="password" name="" required="required" minlength="6", value="12345678")
+                    span.input-block__placeholder Новый пароль
+                    span.input-block__password-toggle
+              .form-style__btn
+                button.btn(type="submit") Сохранить
+
+      include partials/_footer
