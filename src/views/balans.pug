@@ -32,6 +32,35 @@ block main
                   input.mask-rub(type="text" name="" required="required", value="1200" )
                   span.input-block__placeholder Сумма пополнения
                 button.btn(type="submit") Пополнить баланс
+              .bank
+                .bank__link
+                  a.js-bank-toggle(href="javascript:;") Пополнить баланс по безналичному переводу
+                .bank__content
+                  .bank__table
+                    .bank__row
+                      .bank__td Расчётный счёт:
+                      .bank__td 40702810710000898401
+                    .bank__row
+                      .bank__td Корреспондентский счёт:
+                      .bank__td 30101810145250000974
+                    .bank__row
+                      .bank__td БИК:
+                      .bank__td 044525974
+                    .bank__row
+                      .bank__td ИНН:
+                      .bank__td 9705144209
+                    .bank__row
+                      .bank__td КПП:
+                      .bank__td 772301001
+                    .bank__row
+                      .bank__td Наименование банка:
+                      .bank__td Банк АО «Тинькофф Банк»
+                    .bank__row
+                      .bank__td Наименование получателя:
+                      .bank__td ООО «ГЕТТЗАП»
+                    .bank__row
+                      .bank__td Назначение платежа:
+                      .bank__td Перечисление денежных средств на лицевой счёт 15 на основании оферты ООО «ГЕТТЗАП»
           .white-block
             .form-style
               .form-style__label.form-style__label--large История операций

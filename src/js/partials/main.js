@@ -49,13 +49,7 @@ $(document).ready(function () {
             $('.orders-table__row--item .checkbox input').prop( "checked", false );
         }
     });
-    /*$('.orders-table__counter').click(function (event) {
-        event.preventDefault();
-        $(this).parents('.orders-table__row--item').next().slideToggle('',function () {
-            $(this).toggleClass('active');
-        });
-    });*/
-    
+
     $('.orders-table__row--item').click(function (event) {
         event.preventDefault();
         $(this).next().slideToggle('',function () {
@@ -73,9 +67,9 @@ $(document).ready(function () {
         $('.bgoverflow').removeClass('active');
     });
 
-    $('.mask-vin').inputmask({ "mask": "* ", "repeat": 20, "greedy": true });
-    $('.mask-rub').inputmask({ "mask": "9{1,10} руб.",  "greedy": false, "placeholder": "0" });
-    $('.mask-phone').inputmask({ "mask": "+7 (999) 999-99-99",  "greedy": true });
+    $('.mask-vin').inputmask({ "mask": "* ", "repeat": 20, "greedy": true,showMaskOnHover: false });
+    $('.mask-rub').inputmask({ "mask": "9{1,10} руб.",  "greedy": false, "placeholder": "0",showMaskOnHover: false });
+    $('.mask-phone').inputmask({ "mask": "+7 (999) 999-99-99",  "greedy": true,showMaskOnHover: false });
 
 
     function formatContact (contact) {
@@ -113,12 +107,9 @@ $(document).ready(function () {
     });
 
     $('.js-select').select2({
-        //templateResult: formatContact,
-        //templateSelection: formatSelection,
         language: "ru"
     });
 
-    //
     const inputHints = document.querySelectorAll('.input-block__hints button');
 
     if (inputHints.length) {
@@ -131,20 +122,8 @@ $(document).ready(function () {
         })
     }
 
-    //Мои заказы аккордеон
-    /*const orderToggleBtns = document.querySelectorAll('.orders-table__toggle');
-
-    if (orderToggleBtns.length) {
-        orderToggleBtns.forEach(it => {
-            it.onclick = () => {
-                if (it.classList.contains('active')) {
-                    it.classList.remove('active');
-                    it.parentElement.nextElementSibling.classList.remove('active');
-                } else {
-                    it.classList.add('active');
-                    it.parentElement.nextElementSibling.classList.add('active');
-                }
-            }
-        })
-    }*/
+    $('.js-bank-toggle').on('click',function (){
+       event.preventDefault();
+       $('.bank__content').slideToggle();
+    });
 });

@@ -194,6 +194,7 @@
       background: #f2f9ff;
       border-top: 1px solid #c8ceda;
       min-height: 63px;
+      cursor: pointer;
 
       .orders-table__cell {
         letter-spacing: 0.01em;
@@ -435,13 +436,16 @@
     border-radius: 4px;
 
     &--1 {
-      background: #ffb946;
+      background: #FFB946;
     }
     &--2 {
-      background: #2ed47a;
+      background: #2ED47A;
     }
     &--3 {
-      background: red;
+      background: #F94646;
+    }
+    &--4 {
+      background: #00C2FF;
     }
   }
   &__counter {
@@ -1599,6 +1603,88 @@
       color: #27ae60;
       &::before {
         background-image: url("../img/icon-cor.svg");
+      }
+    }
+  }
+}
+
+
+.loader{
+  display: none;
+  height: 40px;
+  &__text{
+  }
+  &__btn{
+    width: 100%;
+    height:20px;
+    background:
+            linear-gradient(90deg,#0001 33%,#00c2ff 50%,#0001 66%)
+            #f2f2f2;
+    background-size:300% 100%;
+    animation: ct1 1s infinite linear;
+  }
+}
+
+@keyframes ct1 {
+  0% {background-position: right}
+}
+
+
+.bank{
+  padding: 12px 16px 0;
+  @include _extrasmall{
+    padding: 12px 0;
+  }
+  &__link{
+    a{
+      font-family: "Poppins", sans-serif;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 21px;
+      text-decoration-line: underline;
+      color: #00C2FF;
+    }
+  }
+  &__content{
+    display: none;
+    padding-top: 16px;
+  }
+  &__table{
+    display: table;
+    @include _extrasmall{
+      display: block;
+    }
+  }
+  &__row{
+    display: table-row;
+    @include _extrasmall{
+      display: block;
+      &+.bank__row{
+        margin-top: 6px;
+      }
+    }
+  }
+  &__td{
+    display: table-cell;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #334D6E;
+    padding: 2px 0;
+    &:nth-child(1){
+      font-weight: 500;
+      width: 242px;
+    }
+
+    @include _extrasmall{
+      display: block;
+      padding: 0;
+
+      &:nth-child(1){
+        font-weight: 600;
+        width: auto;
       }
     }
   }
