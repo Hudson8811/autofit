@@ -1375,6 +1375,37 @@
       }
     }
   }
+
+  &__last{
+    margin-top: 24px !important;
+  }
+
+  &__toggle{
+    color: #00C2FF;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 150%;
+    text-decoration: none;
+    display: inline-flex;
+
+    &::after{
+      margin-left: 4px;
+      margin-top: 7px;
+      content: "";
+      display: block;
+      border: 5px solid transparent; border-top: 5px solid #00C2FF;
+    }
+    &:hover{
+      color: #109cf1;
+    }
+    &.active{
+      &::after{
+        margin-top: 0;
+        margin-bottom: 7px;
+        border: 5px solid transparent; border-bottom: 5px solid #00C2FF;
+      }
+    }
+  }
 }
 .select2-dropdown {
   border: 1px solid #dadce0;
