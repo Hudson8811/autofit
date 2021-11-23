@@ -76,7 +76,7 @@
       }
     }
 
-    &:hover {
+    &:not(.custom-radio__item--disabled):hover {
       #{$item}-text {
         border-color: #00c2ff;
         color: #00c2ff;
@@ -85,6 +85,21 @@
       #{$item}-icon {
         svg {
           fill: #00c2ff;
+        }
+      }
+    }
+
+    &--disabled{
+      cursor: default;
+      .custom-radio__item-text{
+        border-color: #C2CFE0;
+        cursor: default;
+        color: #C2CFE0;
+        span.hint{
+          color: #C2CFE0!important;
+        }
+        svg{
+          fill: #C2CFE0;
         }
       }
     }

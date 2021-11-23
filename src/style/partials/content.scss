@@ -1220,25 +1220,22 @@
     }
   }
   &__help {
-    position: absolute;
+    position: relative;
     width: 20px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #757982;
+    color: #334D6E;
     box-sizing: border-box;
     border-radius: 100%;
     font-size: 13px;
-    background: #eeeff2;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
+    background: #E3E9F1;
+    flex-shrink: 0;
     z-index: 1;
-    @include _small {
-      display: none;
-    }
+    margin-left: 36px;
+
     span {
       cursor: default;
     }
@@ -1246,7 +1243,7 @@
       position: absolute;
       top: 100%;
       right: -10px;
-      width: 250px;
+      width: max-content;
       box-sizing: border-box;
       border-radius: 4px;
       background: #ffffff;
@@ -1254,10 +1251,22 @@
       text-align: left;
       padding: 10px;
       display: none;
+      font-size: 12px;
+      line-height: 18px;
     }
     &:hover {
       .form-style__help-text {
         display: block;
+      }
+    }
+    &--input{
+      position: absolute;
+      margin-left: 0;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      .form-style__help-text{
+        max-width: 300px;
       }
     }
   }
@@ -1306,6 +1315,8 @@
     line-height: 42px;
     font-weight: 500;
     color: #334d6e;
+    display: flex;
+    align-items: center;
   }
 
   &__notice {
@@ -1686,6 +1697,74 @@
         font-weight: 600;
         width: auto;
       }
+    }
+  }
+}
+
+
+.label-flex{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  > span{
+    margin-right: 17px;
+  }
+  &__checkbox{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    input[type=checkbox]{
+      height: 0;
+      width: 0;
+      visibility: hidden;
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+
+    span {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 37px;
+      height: 20px;
+      background: grey;
+      display: block;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    span:after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 16px;
+      transition: 0.3s;
+    }
+
+    input:checked + span {
+      background: #0098D9;
+    }
+
+    input:checked + span:after {
+      left: calc(100% - 2px);
+      transform: translateX(-100%);
+    }
+
+    label:active:after {
+      width: 130px;
+    }
+
+    div{
+      font-size: 14px;
+      line-height: 150%;
+      font-weight: normal;
+      margin-left: 10px;
     }
   }
 }

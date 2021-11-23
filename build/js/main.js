@@ -134,8 +134,16 @@ $(document).ready(function () {
         inputHints.forEach(it => {
             it.addEventListener('click', (e) => {
                 const input = it.parentElement.parentElement.querySelector('input');
-                input.value = it.textContent;
-                input.classList.add('not-empty');
+                let mode = it.dataset.mode;
+                if (mode != 'other'){
+                    input.value = it.textContent;
+                    input.classList.add('not-empty');
+                } else {
+                    input.focus();
+                    let val = input.value;
+                    input.value = '';
+                    input.value = val;
+                }
             })
         })
     }
