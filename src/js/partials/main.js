@@ -3,7 +3,7 @@ $(document).ready(function () {
         $('.input-block input, .input-block textarea').each(function () {
             if ($(this).val() != '') $(this).addClass('not-empty');
         });
-        $('.input-block input, .input-block textarea').on('change keyup paste',function () {
+        $(document).on('change keyup paste','.input-block input, .input-block textarea',function () {
             if ($(this).val() != '') {
                 $(this).addClass('not-empty');
             } else {
@@ -12,7 +12,7 @@ $(document).ready(function () {
         });
     }
 
-    $('input[data-group]').on('change keyup paste',function () {
+    $(document).on('change keyup paste','input[data-group]',function () {
         var group = $(this).data('group');
         if ($(this).val() != '') {
             $('input[data-group="'+group+'"]').not(this).prop('disabled',true);
@@ -110,25 +110,19 @@ $(document).ready(function () {
         language: "ru"
     });
 
-    const inputHints = document.querySelectorAll('.input-block__hints button');
 
-    if (inputHints.length) {
-        inputHints.forEach(it => {
-            it.addEventListener('click', (e) => {
-                const input = it.parentElement.parentElement.querySelector('input');
-                let mode = it.dataset.mode;
-                if (mode != 'other'){
-                    input.value = it.textContent;
-                    input.classList.add('not-empty');
-                } else {
-                    input.focus();
-                    let val = input.value;
-                    input.value = '';
-                    input.value = val;
-                }
-            })
-        })
-    }
+    $(document).on('click','.input-block__hints button',function (){
+        let input = $(this).closest('.input-block').find('input');
+        let mode = $(this).data('mode');
+        if (mode != 'other'){
+            input.val($(this).text()).addClass('not-empty');
+        } else {
+            input.focus();
+            let val = input.val();
+            input.val('');
+            input.val(val);
+        }
+    });
 
     $('.js-bank-toggle').on('click',function (){
        event.preventDefault();
