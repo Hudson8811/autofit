@@ -101,6 +101,7 @@ block main
                       label
                         input(type="text" name="" required="required")
                         span.input-block__placeholder Адрес отправки
+                        span.input-block__remove-address.js-remove-address(title="Очистить")
                 
                 .form-style__row
                   .form-style__col.form-style__col--third-width
@@ -268,9 +269,17 @@ block main
                       select.js-select(name="deliveryTimeEnd")
                         option(value="17") 17:00
                         option(value="18") 18:00
+
+                .form-style__row.fast-alert
+                  .form-style__col.form-style__col--wide
+                    .fast-alert__text <b>Применяется повышенный тариф.</b> Интервал посещения адреса менее 2-х часов с момента создания заявки.
+
                 .form-style__row.form-style__last
                   .form-style__col.form-style__col--wide
                     a.form-style__toggle.js-toggle-form-row(href="javascript:;") Показать дополнительные поля
+
+
+
             .white-block
               .form-style.form-style--wide
                 .form-style__label.form-style__label--large Способы оплаты
