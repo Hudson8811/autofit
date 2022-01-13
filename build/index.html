@@ -122,6 +122,7 @@
                     <div class="orders-table__status orders-table__status--1">В работе</div>
                   </div>
                   <div class="orders-table__cell orders-table__cell--price">540 руб.</div>
+                  <button class="orders-table__edit" type="button" aria-label="Изменить" title="Изменить"></button>
                   <button class="orders-table__toggle active" type="button" aria-label="Развернуть"></button>
                 </div>
                 <div class="orders-table__row orders-table__row--content active">
@@ -166,6 +167,7 @@
                     <div class="orders-table__status orders-table__status--2">Выполнен</div>
                   </div>
                   <div class="orders-table__cell orders-table__cell--price">540 руб.</div>
+                  <button class="orders-table__edit" type="button" aria-label="Изменить" title="Изменить"></button>
                   <button class="orders-table__toggle" type="button" aria-label="Развернуть"></button>
                 </div>
                 <div class="orders-table__row orders-table__row--content">
@@ -197,6 +199,299 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="edit-order" id="edit_order">
+            <form>
+              <div class="white-block">
+                <div class="form-style form-style--wide">
+                  <div class="form-style__label form-style__label--large">Что везем</div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="input-block">
+                        <label>
+                          <input type="text" name="" required="required"><span class="input-block__placeholder">Наименование груза</span>
+                        </label>
+                        <div class="input-block__hints">
+                          <button type="button" data-mode="other">Запасные части</button>
+                          <button type="button" data-mode="other">Кузовные элементы</button>
+                          <button type="button" data-mode="other">Тех. жидкости</button>
+                          <button type="button" data-mode="other">Оптика</button>
+                          <button type="button" data-mode="other">Автостёкла</button>
+                          <button type="button" data-mode="other">Крупные узлы</button>
+                          <button type="button" data-mode="other">Другое</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__label form-style__label--large label-flex"><span class="label-flex__title">Как доставить</span>
+                    <label class="label-flex__checkbox">
+                      <input type="checkbox" name="oncar" value="1"><span></span>
+                      <div>Срочная доставка</div>
+                    </label>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="custom-radio">
+                        <label class="custom-radio__item custom-radio__item--icon">
+                          <input class="visually-hidden" type="radio" name="deliveryType" value="Пешком" checked><span class="custom-radio__item-text"><span class="custom-radio__item-icon">
+                              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.875 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-7.02 1.18a1.125 1.125 0 0 0-.97.132L6.128 5.384A1.125 1.125 0 1 0 7.37 7.261l2.3-1.523 1.066.35-2.034 3.151c-.02.032-.04.065-.057.098l-1.273 2.492-2.624-.596a1.125 1.125 0 0 0-.498 2.194l3.477.79a1.125 1.125 0 0 0 1.251-.585l1.049-2.053.685.54-1.108 4.395a1.125 1.125 0 0 0 2.131.722l1.364-5.148c.153-.452.005-.95-.37-1.245l-1.581-1.244 1.509-2.337.793 1.225c.208.32.563.513.944.513h2.48a1.125 1.125 0 0 0 0-2.25h-1.868l-1.125-1.737a1.125 1.125 0 0 0-.594-.457L9.855 3.43ZM2.25 7.876a1.125 1.125 0 0 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H2.25ZM0 5.625C0 5.004.504 4.5 1.125 4.5h1.687a1.125 1.125 0 0 1 0 2.25H1.125A1.125 1.125 0 0 1 0 5.625Zm3.375-4.5a1.125 1.125 0 1 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H3.375Z"></path>
+                              </svg></span><span>Пешком</span></span>
+                        </label>
+                        <label class="custom-radio__item custom-radio__item--icon">
+                          <input class="visually-hidden" type="radio" name="deliveryType" value="Легковой автомобиль"><span class="custom-radio__item-text"><span class="custom-radio__item-icon">
+                              <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.47 0a1.5 1.5 0 0 0-1.417 1.014L0 7v8a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1h12v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7l-2.053-5.986A1.5 1.5 0 0 0 14.53 0H3.471Zm.358 2h10.344l1.03 3H2.798l1.03-3ZM2.113 7h13.774l.113.332V12H2V7.332L2.113 7ZM4.5 8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"></path>
+                              </svg></span><span>Легковой автомобиль</span></span>
+                        </label>
+                        <label class="custom-radio__item custom-radio__item--icon">
+                          <input class="visually-hidden" type="radio" name="deliveryType" value="Грузовой"><span class="custom-radio__item-text"><span class="custom-radio__item-icon">
+                              <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 0a2 2 0 0 0-2 2v11h2a3 3 0 1 0 6 0h6a3 3 0 1 0 6 0h2V8l-2.725-5.447A.996.996 0 0 0 18.383 2H15V0H2Zm0 2h11v9H7.22A2.98 2.98 0 0 0 5 10a2.98 2.98 0 0 0-2.22 1H2V2Zm13 2h2.764l1 2H15V4Zm0 4h4.764l.236.473V11h-.78A2.98 2.98 0 0 0 17 10c-.772 0-1.468.3-2 .78V8ZM5 11.75c.689 0 1.25.561 1.25 1.25S5.689 14.25 5 14.25 3.75 13.689 3.75 13s.561-1.25 1.25-1.25Zm12 0c.689 0 1.25.561 1.25 1.25s-.561 1.25-1.25 1.25-1.25-.561-1.25-1.25.561-1.25 1.25-1.25Z"></path>
+                              </svg></span><span>Грузовой</span></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__label form-style__label--large">Вес груза</div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="custom-radio">
+                        <label class="custom-radio__item">
+                          <input class="visually-hidden" type="radio" name="weight" value="до 1кг" checked><span class="custom-radio__item-text"><span>до 1кг</span></span>
+                        </label>
+                        <label class="custom-radio__item">
+                          <input class="visually-hidden" type="radio" name="weight" value="до 3кг"><span class="custom-radio__item-text"><span>до 3кг</span></span>
+                        </label>
+                        <label class="custom-radio__item">
+                          <input class="visually-hidden" type="radio" name="weight" value="до 5кг"><span class="custom-radio__item-text"><span>до 5кг</span></span>
+                        </label>
+                        <label class="custom-radio__item">
+                          <input class="visually-hidden" type="radio" name="weight" value="до 10кг"><span class="custom-radio__item-text"><span>до 10кг</span></span>
+                        </label>
+                        <label class="custom-radio__item">
+                          <input class="visually-hidden" type="radio" name="weight" value="до 15кг"><span class="custom-radio__item-text"><span>до 15кг</span></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__label form-style__label--large">Ценность груза</div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="input-block input-block--notice input-block--rub">
+                        <label>
+                          <input type="text" name="" required="required" value="1000">
+                        </label>
+                        <div class="input-block__notice">плюс 10 руб. к заказу</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col">
+                      <div class="form-style__text form-style__text--main-color">Компенсируем ценность утерянных отправлений и выручки в течение трех рабочих дней по <a href="#">регламенту</a>. Максимальная компенсация — 50 000 рублей.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="white-block" id="last-block">
+                <div class="form-style form-style--wide">
+                  <div class="form-style__label form-style__label--large">Откуда</div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="input-block input-block--address"><a class="input-block__map" href="#"><img src="img/map-thumb.svg" width="38" height="38" alt=""></a>
+                        <label>
+                          <input type="text" name="" required="required"><span class="input-block__placeholder">Адрес отправки</span><span class="input-block__remove-address js-remove-address" title="Очистить"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--third-width">
+                      <label class="input-block">
+                        <input type="number" name="" required="required"><span class="input-block__placeholder">Подъезд/павильон</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--third-width">
+                      <label class="input-block">
+                        <input type="nember" name="" required="required"><span class="input-block__placeholder">Этаж/подвал</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--third-width">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Квартира/помещение</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--auto">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Комментарий к адресу</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <label class="input-block">
+                        <textarea type="text" name="" required="required"></textarea><span class="input-block__placeholder">Поручение для курьера</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--third-width">
+                      <label class="input-block">
+                        <input class="mask-phone" type="tel" name="" required="required"><span class="input-block__placeholder">Контактный телефон</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--auto">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Контактное лицо</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--day">
+                      <select class="js-select" name="deliveryDate">
+                        <option value="today">Сегодня</option>
+                        <option value="tomorrow">Завтра</option>
+                      </select>
+                    </div>
+                    <div class="form-style__col form-style__col--time">
+                      <div class="timeselect">
+                        <div class="timeselect__before">c</div>
+                        <select class="js-select" name="deliveryTimeStart">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-style__col form-style__col--time">
+                      <div class="timeselect">
+                        <div class="timeselect__before">до</div>
+                        <select class="js-select" name="deliveryTimeEnd">
+                          <option value="17">17:00</option>
+                          <option value="18">18:00</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-style__col form-style__col--auto">
+                      <div class="courier-time"><span class="courier-time__icon">
+                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.875 2.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-7.02 1.18a1.125 1.125 0 0 0-.97.132L6.128 5.384A1.125 1.125 0 1 0 7.37 7.261l2.3-1.523 1.066.35-2.034 3.151c-.02.032-.04.065-.057.098l-1.273 2.492-2.624-.596a1.125 1.125 0 0 0-.498 2.194l3.477.79a1.125 1.125 0 0 0 1.251-.585l1.049-2.053.685.54-1.108 4.395a1.125 1.125 0 0 0 2.131.722l1.364-5.148c.153-.452.005-.95-.37-1.245l-1.581-1.244 1.509-2.337.793 1.225c.208.32.563.513.944.513h2.48a1.125 1.125 0 0 0 0-2.25h-1.868l-1.125-1.737a1.125 1.125 0 0 0-.594-.457L9.855 3.43ZM2.25 7.876a1.125 1.125 0 0 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H2.25ZM0 5.625C0 5.004.504 4.5 1.125 4.5h1.687a1.125 1.125 0 0 1 0 2.25H1.125A1.125 1.125 0 0 1 0 5.625Zm3.375-4.5a1.125 1.125 0 1 0 0 2.25h1.687a1.125 1.125 0 1 0 0-2.25H3.375Z" fill="#00C2FF"></path>
+                          </svg></span><span class="courier-time__text">Курьер будет с <b>15:00</b> до <b>17:00</b></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="white-block">
+                <div class="form-style form-style--wide">
+                  <div class="form-style__label form-style__label--large form-style__label--flex"><span>Куда</span></div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="input-block input-block--address"><a class="input-block__map" href="#"><img src="img/map-thumb.svg" width="38" height="38" alt=""></a>
+                        <label>
+                          <input type="text" name="" required="required"><span class="input-block__placeholder">Адрес доставки</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--small">
+                      <label class="input-block">
+                        <input type="number" name="" required="required"><span class="input-block__placeholder">Подъезд</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--small">
+                      <label class="input-block">
+                        <input type="nember" name="" required="required"><span class="input-block__placeholder">Этаж</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--small">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Кв/офис</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--auto">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Комментарий к адресу</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--wide">
+                      <label class="input-block">
+                        <textarea type="text" name="" required="required"></textarea><span class="input-block__placeholder">Поручение для курьера</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--third-width">
+                      <label class="input-block">
+                        <input type="tel" name="" required="required"><span class="input-block__placeholder">Контактный телефон</span>
+                      </label>
+                    </div>
+                    <div class="form-style__col form-style__col--auto">
+                      <label class="input-block">
+                        <input type="text" name="" required="required"><span class="input-block__placeholder">Контактное лицо</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-style__row">
+                    <div class="form-style__col form-style__col--day">
+                      <select class="js-select" name="deliveryDate">
+                        <option value="today">Сегодня</option>
+                        <option value="tomorrow">Завтра</option>
+                      </select>
+                    </div>
+                    <div class="form-style__col form-style__col--time">
+                      <div class="timeselect">
+                        <div class="timeselect__before">c</div>
+                        <select class="js-select" name="deliveryTimeStart">
+                          <option value="9">9:00</option>
+                          <option value="10">10:00</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-style__col form-style__col--time">
+                      <div class="timeselect">
+                        <div class="timeselect__before">до</div>
+                        <select class="js-select" name="deliveryTimeEnd">
+                          <option value="17">17:00</option>
+                          <option value="18">18:00</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-style__row fast-alert">
+                    <div class="form-style__col form-style__col--wide">
+                      <div class="fast-alert__text"><b>Применяется повышенный тариф.</b> Интервал посещения адреса менее 2-х часов с момента создания заявки.</div>
+                    </div>
+                  </div>
+                  <div class="form-style__row form-style__last">
+                    <div class="form-style__col form-style__col--wide"><a class="form-style__toggle js-toggle-form-row" href="javascript:;">Показать дополнительные поля</a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="white-block">
+                <div class="form-style form-style--wide">
+                  <div class="form-style__label form-style__label--large"></div>
+                  <div class="form-style__total-price"> Итого: 350 руб
+                    <div class="form-style__help"><span>?
+                        <div class="form-style__help-text">
+                          <p>За доставку - <span class="js-total1">0</span> руб.</p>
+                          <p>Материальная ответственность - <span class="js-total2">10</span> руб.</p>
+                        </div></span></div>
+                  </div>
+                  <div class="form-style__btn">
+                    <button class="btn btn--xlarge" type="submit">Сохранить изменения</button>
+                    <div class="loader">
+                      <div class="loader__text">Сохранение...</div>
+                      <div class="loader__btn"></div>
+                    </div>
+                  </div>
+                  <div class="form-style__notice">После отправки заявки Вы сможете отслеживать статус заказа в Личном кабинете.</div>
+                </div>
+              </div>
+            </form>
           </div>
           <div class="footer">
             <div class="container footer__container">

@@ -167,7 +167,7 @@
     width: 100%;
     display: flex;
     padding-left: 32px;
-    padding-right: 48px;
+    padding-right: 85px;
 
     &--header {
       min-height: 54px;
@@ -216,7 +216,7 @@
 
       @include _large {
         padding-left: 20px;
-        padding-right: 32px;
+        padding-right: 62px;
       }
 
       @include _small {
@@ -342,6 +342,33 @@
         text-align: left !important;
         order: 1;
       }
+    }
+  }
+
+  &__edit{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 55px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: url(../img/edit_order.svg) center center no-repeat;
+    appearance: none;
+    cursor: pointer;
+
+    &:hover{
+      filter: brightness(0);
+    }
+
+    @include _large {
+      right: 40px;
+    }
+
+    @include _small {
+      display: none;
     }
   }
 
@@ -1006,12 +1033,32 @@
     cursor: pointer;
     transition: 0.3s;
     opacity: 0.5;
+    z-index: 2;
+
     &:hover{
       opacity: 1;
     }
   }
   .not-empty ~ .input-block__remove-address{
     display: block;
+  }
+
+}
+
+.address-row{
+  position: relative;
+  &::after{
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,1) 100%);
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 47px;
+    height: calc(100% - 2px);
+    z-index: 1;
+    content: "";
+    display: block;
+    border-radius: 3px;
   }
 }
 
@@ -1274,6 +1321,10 @@
       display: none;
       font-size: 12px;
       line-height: 18px;
+      @include _small(){
+        right: -50%;
+        transform: translateX(50%);
+      }
     }
     &:hover {
       .form-style__help-text {
@@ -1338,6 +1389,23 @@
     color: #334d6e;
     display: flex;
     align-items: center;
+  }
+
+  &__change{
+    font-size: 28px;
+    line-height: 42px;
+    font-weight: 500;
+    color: #334d6e;
+    display: flex;
+    align-items: center;
+    .js-change-price-wrapper{
+      &.plus{
+        color: #eb5757;
+      }
+      &.minus{
+        color: #27ae60;
+      }
+    }
   }
 
   &__notice {
@@ -1831,5 +1899,36 @@
   }
   &.active{
     display: flex;
+  }
+}
+
+.edit-order{
+  display: none;
+  width: 896px;
+  max-width: 100%;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 48px;
+  @include _medium{
+    padding: 15px;
+  }
+  a.close-modal{
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACxSURBVHgBxdZRCsQgDATQ2Isne/JZFiy4Ja2JGelAf1TyhGpQ5K0AsN8n5Lh1++AZE1K8usc5N6xTBtpr6Dh0XaD4j0kBu9TSu4VlNIwx0DRWQZexFbSMZVAaFkHp2BO6DXtA92ETNIUdkksLjtXj/DP3IO3CFMTeO8WGOS6KwNGnoUjcszKKhUu9jKLQQdIoCO0qjILYG6coE5uh3qvNWmsfKabXsHEP3o7oXX9X3XC+74cgHu5YSaoAAAAASUVORK5CYII=');
+    width: 24px;
+    height: 24px;
+    top: -45px;
+    right: -45px;
+    @include _medium{
+      right: 0;
+    }
+  }
+}
+
+.jquery-modal{
+  z-index: 12;
+  padding: 164px 20px 100px;
+  background-color: rgba(51,77,110,.75);
+  @include _medium{
+    padding: 100px 0 20px;
   }
 }

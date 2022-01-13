@@ -52,10 +52,12 @@ $(document).ready(function () {
 
     $('.orders-table__row--item').click(function (event) {
         event.preventDefault();
-        $(this).next().slideToggle('',function () {
-            $(this).toggleClass('active');
-        });
-        $(this).find('.orders-table__toggle').toggleClass('active');
+        if (!$(event.target).hasClass('orders-table__edit')){
+            $(this).next().slideToggle('',function () {
+                $(this).toggleClass('active');
+            });
+            $(this).find('.orders-table__toggle').toggleClass('active');
+        }
     });
 
     $('.topbar__menu').click(function () {
@@ -128,4 +130,8 @@ $(document).ready(function () {
        event.preventDefault();
        $('.bank__content').slideToggle();
     });
+
+
+
+
 });
