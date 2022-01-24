@@ -6,8 +6,12 @@
         a.topbar__logo(href="")
           img(src="img/sda-logo.svg")
       if page.isAuth
-        .topbar__search
-          form
-            input(type="text" name="search" placeholder='Поиск по заявкам')
-        .topbar__notifications
-          a.topbar__notifications-link.has-new(href="")
+        .topbar__info
+          .topbar__info-container
+            .topbar__balans Баланс: 4599&nbsp;руб.
+            .topbar__balans.topbar__hide Кэшбэк: 4599&nbsp;руб.
+            .topbar__help.form-style__help.topbar__hide
+              span ?
+              .form-style__help-text
+                p Какой то текст. Сдесь могла быть ваша реклама
+

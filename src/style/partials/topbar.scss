@@ -92,4 +92,40 @@
       }
     }
   }
+
+  &__info{
+    width: 100%;
+    &-container{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      max-width: 730px;
+    }
+  }
+  &__balans{
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #00C2FF;
+    border: 1px solid #B0B4BD;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 6px 8px;
+    @include _small {
+      padding: 6px;
+      line-height: 1.2;
+    }
+    +.topbar__balans{
+      margin-left: 16px;
+    }
+  }
+
+  &__hide{
+    @include _small {
+      display: none;
+    }
+  }
 }

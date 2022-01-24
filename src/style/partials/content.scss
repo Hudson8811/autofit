@@ -1774,6 +1774,9 @@
       line-height: 21px;
       text-decoration-line: underline;
       color: #00C2FF;
+      &:hover{
+        text-decoration: none;
+      }
     }
   }
   &__content{
@@ -1817,6 +1820,36 @@
         font-weight: 600;
         width: auto;
       }
+    }
+  }
+}
+
+.cashback{
+  display: flex;
+  margin-top: 16px;
+  &__info{
+    font-size: 14px;
+    line-height: 21px;
+    color: #334D6E;
+    span{
+      color: #27ae60;
+    }
+  }
+  &__control{
+    margin-left: 14px;
+  }
+  &__link{
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration-line: underline;
+    color: #00C2FF;
+    &:hover{
+      text-decoration: none;
+    }
+    +.cashback__link{
+      margin-left: 12px;
     }
   }
 }
